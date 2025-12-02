@@ -1,0 +1,30 @@
+{
+  "name": "kerstballen-deepdive",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kH3CK/Kerstballen-deepdive.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "module": "commonjs",
+  "bugs": {
+    "url": "https://github.com/kH3CK/Kerstballen-deepdive/issues"
+  },
+  "homepage": "https://github.com/kH3CK/Kerstballen-deepdive#readme",
+  "devDependencies": {
+    "vite": "^7.2.2"
+  },
+  "dependencies": {
+    "@tailwindcss/vite": "^4.1.17",
+    "tailwindcss": "^4.1.17"
+  }
+}

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<title>Wheel Controller</title>
+<style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    #qr { margin: 20px auto; }
+    button { padding: 15px 30px; font-size: 20px; cursor: pointer; }
+</style>
+</head>
+<body>
+
+<h2>Çark Kontrol</h2>
+<p>Telefonunla QR kodu okut, tek tuşla çarkı döndür.</p>
+<canvas id="qr"></canvas>
+<br>
+<button id="spinBtn">ÇEVİR</button>
+<script src="src/js/spin.js" defer></script>
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script>
+/* ---------------- PC IP ve WebSocket portu ---------------- */
+const PC_IP = "10.16.138.158"; // PC IP adresi, doğru IP'yi yazmalısın
+const PORT = 8080;              // WebSocket portu
+/* --------------------------------------------------------- */
+
+/* QR kodu oluştur */
+const qrUrl = `http://${PC_IP}:5173/Kerstballen-deepdive/mobile.html`; // Vite Server Portu
+QRCode.toCanvas(document.getElementById('qr'), qrUrl, { width: 200 }, function (error) {
+    if (error) console.error(error);
+    console.log('QR kod hazır:', qrUrl);
+});
+
+/* WebSocket bağlantısı */
+let socket = new WebSocket(`ws://${PC_IP}:8081`);
+
+socket.onopen = () => console.log("WS bağlantısı kuruldu");
+
+/* Butona basınca spin komutu gönder */
+document.getElementById("spinBtn").addEventListener("click", () => {
+    socket.send("spin");
+});
+</script>
+
+</body>
+</html>
