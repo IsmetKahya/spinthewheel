@@ -63,10 +63,3 @@ startBtn.addEventListener('click', () => {
         startBtn.disabled = false;
     }, 3000);
 });
-const socket = new WebSocket("ws://10.16.138.158:8081");
-
-socket.onmessage = (msg) => {
-    if(msg.data === "spin") {
-        startBtn.click();
-    }
-};
