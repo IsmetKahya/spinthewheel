@@ -19,8 +19,13 @@ const plannedGreens = [0, 2, 4, 7, 10, 13, 16, 19];
 let lastWasGreen = false;
 let spinIndex = 0;
 
+const resultText = document.getElementById("resultText");
+
 startBtn.addEventListener('click', () => {
     if (isSpinning) return;
+
+    // 🔄 Her başlangıçta eski yazıyı temizle
+    resultText.textContent = "";
 
     isSpinning = true;
     startBtn.disabled = true;
@@ -52,9 +57,9 @@ startBtn.addEventListener('click', () => {
     setTimeout(() => {
         const landedGreen = (currentRotation % 360 >= GREEN_START || currentRotation % 360 <= GREEN_END);
 
-        console.log(
-            `Spin ${spinIndex + 1}: ${landedGreen ? "YEŞİL" : "BEYAZ"} → Derece: ${currentRotation % 360}`
-        );
+        if (landedGreen) {
+            resultText.textContent = "GEFELICITEERD!";
+        }
 
         lastWasGreen = landedGreen;
         spinIndex++;
