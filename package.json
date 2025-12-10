@@ -4,9 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "preview": "vite preview"
+    "build": "npx vite build",
+    "dev": "vite"
   },
   "repository": {
     "type": "git",
@@ -21,7 +20,7 @@
   },
   "homepage": "https://github.com/kH3CK/Kerstballen-deepdive#readme",
   "devDependencies": {
-    "vite": "^7.2.2"
+    "vite": "^7.2.7"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.17",
