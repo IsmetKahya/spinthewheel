@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="nl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spin de Kersteierbal</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+        body {
+            font-family: 'Anton', sans-serif;
+            letter-spacing: 0.15em;
+        }
+
+        #startBtn {
+    z-index: 20;
+}
+
+        #startBtn::after {
+    content: "";
+    position: absolute;
+    top: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 38px;
+    height: 38px;
+
+    background: #FBBF24;
+    clip-path: polygon(50% 0%, 24% 100%, 78% 100%);
+
+    
+}
+
+        .slice {
+            width: 210px;
+            height: 150px;
+            transform-origin: 50% 100%;
+            clip-path: polygon(31% 0%, 68% 0%, 50% 100%);
+
+            background: white;
+        }
+
+        .slices {
+            z-index: 50;
+            pointer-events: none;
+        }
+
+        .slice.green {
+            background: #10b981;
+        }
+        
+    </style>
+    <script src="/src/js/spin.js" defer></script>
+</head>
+
+<body class="bg-[#3CAF5C] min-h-screen flex flex-col relative overflow-hidden">
+
+    <div class="text-center pt-10 pb-8">
+        <h1 class="text-[#FEE56A] text-5xl tracking-[0.15em] font-bold">SPIN DE KERSTEIERBAL</h1>
+    </div>
+
+    <div class="container flex items-center justify-center ml-10 absolute min-h-screen">
+
+        <div id="wheel" class="relative flex items-center justify-center h-[650px] w-[650px]">
+            <!-- Cark SVG -->
+            <img src="/assets/wheel-NpUOfweP.svg" alt="wheel" class="h-full w-full select-none">
+
+            <!-- Slices -->
+            <div class="absolute inset-0 pointer-events-none z-10 flex items-center justify-center">
+                <div class="relative w-0 h-0">
+                    <div id="slice-1" class="slice green absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(0deg);"></div>
+                    <div id="slice-2" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(30deg);"></div>
+                    <div id="slice-3" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(60deg);"></div>
+                    <div id="slice-4" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(90deg);"></div>
+                    <div id="slice-5" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(120deg);"></div>
+                    <div id="slice-6" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(150deg);"></div>
+                    <div id="slice-7" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(180deg);"></div>
+                    <div id="slice-8" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(210deg);"></div>
+                    <div id="slice-9" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(240deg);"></div>
+                    <div id="slice-10" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(270deg);"></div>
+                    <div id="slice-11" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(300deg);"></div>
+                    <div id="slice-12" class="slice absolute left-0 bottom-0 -translate-x-1/2" style="transform: translateX(-50%) rotate(330deg);"></div>
+                </div>
+            </div>
+
+        </div>
+        <!-- start button -->
+        <button id="startBtn"
+            class="absolute z-20 bg-[#FBBF24] border-4 border-white rounded-full w-28 h-28 flex items-center justify-center text-xl font-bold hover:bg-[#FDD835] shadow-xl">
+            START
+        </button>
+
+    </div>
+<div id="resultText" class="absolute top-10 right-10 text-white text-5xl font-bold"></div>
+
+    <div class="absolute bottom-16 left-16">
+        <div class="mb-8">
+            <h2 class="text-white text-5xl leading-tight font-bold">
+                HIT GROEN<br>
+                EN WIN<br>
+                EEN GRATIS<br>
+                KERSTEIERBAL
+            </h2>
+        </div>
+    </div>
+
+</body>
+
+</html>
