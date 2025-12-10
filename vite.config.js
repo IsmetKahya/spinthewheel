@@ -1,7 +1,6 @@
-// vite.config.js
-export default {
-  server: {
-    // Dev server'ın allowed hosts listesine Netlify domain'ini ekle
-    allowedHosts: ['devserver-main--spinthewheelkerst.netlify.app'],
-  },
-}
+import { defineConfig } from "vite";
+import tailwindcss from "@tailwindcss/vite";
+
+export default defineConfig({
+  plugins: [tailwindcss()],
+});
